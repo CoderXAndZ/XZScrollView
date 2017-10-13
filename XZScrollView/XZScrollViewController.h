@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  XZScrollViewController.h
 //  XZScrollView
 //
 //  Created by XZ on 2016/5/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface XZScrollViewController : UIViewController
 
 @end
-

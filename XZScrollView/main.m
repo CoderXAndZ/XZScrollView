@@ -2,8 +2,8 @@
 //  main.m
 //  XZScrollView
 //
-//  Created by admin on 2017/10/11.
-//  Copyright © 2017年 RongTuoJinRong. All rights reserved.
+//  Created by XZ on 2016/5/12.
+//  Copyright © 2016年 XZ. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
