@@ -8,13 +8,10 @@
 
 #import "XZScrollViewController.h"
 #import "XZPageScrollView.h"
-
-//#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-//#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-//// 随机色
-//#define XZRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
-//
-//#define kImgWidth kScreenWidth * 2 / 3
+//#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+//#define kScreenHeight   [UIScreen mainScreen].bounds.size.height
+//#define kImgWidth kScreenWidth * 2 / 3  // 图片宽度
+//#define kImgHeight kScreenHeight * 2 / 3  // 图片高度
 
 @interface XZScrollViewController ()<UIScrollViewDelegate>
 
@@ -32,18 +29,20 @@
     //
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.scrollView = [[XZPageScrollView alloc] initWithFrame:self.view.bounds target:self];
+    self.scrollView = [[XZPageScrollView alloc] initWithFrame:self.view.bounds target:self isSameSize:NO];
     [self.view addSubview:self.scrollView];
     
-    //
-    self.arrUrls = @[@"https://box.dwstatic.com/skin/Irelia/Irelia_0.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_1.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_2.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_3.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_4.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_5.jpg"];
-    [self.scrollView loadImgWithUrls:self.arrUrls];
     
+    self.arrUrls = @[@"https://box.dwstatic.com/skin/Irelia/Irelia_0.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_1.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_2.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_3.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_4.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_5.jpg"];
+//    self.arrUrls = @[@"占位图",@"占位图",@"占位图",@"占位图"];
+    
+//    @"占位图"
+    [self.scrollView loadImgWithUrls:self.arrUrls placeholderImg:nil];
+    self.scrollView.canCycleScroll = YES;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.scrollView scrollViewDidScrolled];
 }
-
 
 @end

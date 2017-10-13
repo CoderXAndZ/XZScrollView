@@ -12,22 +12,21 @@
 
 /**
  * 自定义初始化方法
+ * isSameSize:YES 每张图片的大小相同，NO当前显示的图片最大
  **/
-- (id)initWithFrame:(CGRect)frame target:(id<UIScrollViewDelegate>)target;
+- (instancetype)initWithFrame:(CGRect)frame target:(id<UIScrollViewDelegate>)target isSameSize:(BOOL)isSameSize;
 
 /**
- * 加载本地图片
- **/
-- (void)loadImages:(NSArray *)array;
-
-/**
- * 加载网络图片
- **/
-- (void)loadImgWithUrls:(NSArray *)urls;
+ * 加载图片
+ */
+- (void)loadImgWithUrls:(NSArray *)urls placeholderImg:(NSString *)placeholderImg;
 
 /**
  * 滑动时抽屉效果
  **/
 - (void)scrollViewDidScrolled;
+
+/** 可以轮播 */ 
+@property (nonatomic, assign) BOOL canCycleScroll;
 
 @end
