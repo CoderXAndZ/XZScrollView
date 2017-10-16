@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840D08E91F9196C6006D776E /* XZPageScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D08E81F9196C6006D776E /* XZPageScrollCell.m */; };
+		840D08EA1F9196C6006D776E /* XZPageScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D08E81F9196C6006D776E /* XZPageScrollCell.m */; };
+		840D08ED1F91ABDE006D776E /* XZPageScrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D08EC1F91ABDE006D776E /* XZPageScrollModel.m */; };
+		840D08EE1F91ABDE006D776E /* XZPageScrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D08EC1F91ABDE006D776E /* XZPageScrollModel.m */; };
+		841A9CF21F9438F0007C0839 /* XZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A9CF11F9438F0007C0839 /* XZFlowLayout.m */; };
+		841A9CF31F9438F0007C0839 /* XZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A9CF11F9438F0007C0839 /* XZFlowLayout.m */; };
 		841A9DCC1F8F4F7100BCBCDD /* XZPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A9DCB1F8F4F7100BCBCDD /* XZPageScrollView.m */; };
 		841A9DCD1F8F4F7100BCBCDD /* XZPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A9DCB1F8F4F7100BCBCDD /* XZPageScrollView.m */; };
 		841A9DCE1F8F630400BCBCDD /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C9AE01F8DEC7B00940E7F /* NSData+ImageContentType.m */; };
@@ -33,8 +39,6 @@
 		844B581E1F8DA72C00DF48DE /* XZScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B581D1F8DA72C00DF48DE /* XZScrollViewTests.m */; };
 		844B582A1F8DAD7C00DF48DE /* XZScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B58291F8DAD7C00DF48DE /* XZScrollViewController.m */; };
 		844B582B1F8DAD7C00DF48DE /* XZScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B58291F8DAD7C00DF48DE /* XZScrollViewController.m */; };
-		844B582E1F8DC4D400DF48DE /* XZScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B582D1F8DC4D400DF48DE /* XZScrollView.m */; };
-		844B582F1F8DC4D400DF48DE /* XZScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B582D1F8DC4D400DF48DE /* XZScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840D08E71F9196C6006D776E /* XZPageScrollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZPageScrollCell.h; sourceTree = "<group>"; };
+		840D08E81F9196C6006D776E /* XZPageScrollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZPageScrollCell.m; sourceTree = "<group>"; };
+		840D08EB1F91ABDE006D776E /* XZPageScrollModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZPageScrollModel.h; sourceTree = "<group>"; };
+		840D08EC1F91ABDE006D776E /* XZPageScrollModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZPageScrollModel.m; sourceTree = "<group>"; };
+		841A9CF01F9438F0007C0839 /* XZFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZFlowLayout.h; sourceTree = "<group>"; };
+		841A9CF11F9438F0007C0839 /* XZFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFlowLayout.m; sourceTree = "<group>"; };
 		841A9DCA1F8F4F7100BCBCDD /* XZPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZPageScrollView.h; sourceTree = "<group>"; };
 		841A9DCB1F8F4F7100BCBCDD /* XZPageScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZPageScrollView.m; sourceTree = "<group>"; };
 		844B58011F8DA72B00DF48DE /* XZScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XZScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +73,6 @@
 		844B581F1F8DA72C00DF48DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844B58281F8DAD7C00DF48DE /* XZScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZScrollViewController.h; sourceTree = "<group>"; };
 		844B58291F8DAD7C00DF48DE /* XZScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZScrollViewController.m; sourceTree = "<group>"; };
-		844B582C1F8DC4D400DF48DE /* XZScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZScrollView.h; sourceTree = "<group>"; };
-		844B582D1F8DC4D400DF48DE /* XZScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZScrollView.m; sourceTree = "<group>"; };
 		845C9ADF1F8DEC7B00940E7F /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		845C9AE01F8DEC7B00940E7F /* NSData+ImageContentType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		845C9AE11F8DEC7B00940E7F /* NSImage+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+WebCache.h"; sourceTree = "<group>"; };
@@ -150,8 +158,12 @@
 				844B58291F8DAD7C00DF48DE /* XZScrollViewController.m */,
 				841A9DCA1F8F4F7100BCBCDD /* XZPageScrollView.h */,
 				841A9DCB1F8F4F7100BCBCDD /* XZPageScrollView.m */,
-				844B582C1F8DC4D400DF48DE /* XZScrollView.h */,
-				844B582D1F8DC4D400DF48DE /* XZScrollView.m */,
+				841A9CF01F9438F0007C0839 /* XZFlowLayout.h */,
+				841A9CF11F9438F0007C0839 /* XZFlowLayout.m */,
+				840D08E71F9196C6006D776E /* XZPageScrollCell.h */,
+				840D08E81F9196C6006D776E /* XZPageScrollCell.m */,
+				840D08EB1F91ABDE006D776E /* XZPageScrollModel.h */,
+				840D08EC1F91ABDE006D776E /* XZPageScrollModel.m */,
 				844B580D1F8DA72B00DF48DE /* Assets.xcassets */,
 				844B58121F8DA72C00DF48DE /* Info.plist */,
 				844B58131F8DA72C00DF48DE /* main.m */,
@@ -313,6 +325,8 @@
 				841A9DDE1F8F634C00BCBCDD /* UIView+WebCacheOperation.m in Sources */,
 				841A9DDD1F8F634700BCBCDD /* UIView+WebCache.m in Sources */,
 				841A9DDC1F8F634300BCBCDD /* UIImageView+WebCache.m in Sources */,
+				840D08E91F9196C6006D776E /* XZPageScrollCell.m in Sources */,
+				840D08ED1F91ABDE006D776E /* XZPageScrollModel.m in Sources */,
 				841A9DDB1F8F634000BCBCDD /* UIImageView+HighlightedWebCache.m in Sources */,
 				841A9DDA1F8F633B00BCBCDD /* UIImage+MultiFormat.m in Sources */,
 				841A9DD91F8F633800BCBCDD /* UIImage+GIF.m in Sources */,
@@ -329,9 +343,9 @@
 				841A9DCE1F8F630400BCBCDD /* NSData+ImageContentType.m in Sources */,
 				841A9DCC1F8F4F7100BCBCDD /* XZPageScrollView.m in Sources */,
 				844B58091F8DA72B00DF48DE /* ViewController.m in Sources */,
+				841A9CF21F9438F0007C0839 /* XZFlowLayout.m in Sources */,
 				844B58141F8DA72C00DF48DE /* main.m in Sources */,
 				844B58061F8DA72B00DF48DE /* AppDelegate.m in Sources */,
-				844B582E1F8DC4D400DF48DE /* XZScrollView.m in Sources */,
 				844B582A1F8DAD7C00DF48DE /* XZScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,9 +355,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				844B581E1F8DA72C00DF48DE /* XZScrollViewTests.m in Sources */,
+				840D08EE1F91ABDE006D776E /* XZPageScrollModel.m in Sources */,
 				844B582B1F8DAD7C00DF48DE /* XZScrollViewController.m in Sources */,
+				841A9CF31F9438F0007C0839 /* XZFlowLayout.m in Sources */,
 				841A9DCD1F8F4F7100BCBCDD /* XZPageScrollView.m in Sources */,
-				844B582F1F8DC4D400DF48DE /* XZScrollView.m in Sources */,
+				840D08EA1F9196C6006D776E /* XZPageScrollCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
