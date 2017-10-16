@@ -23,7 +23,7 @@
 
 NSString *const collectionId = @"cycleCell";
 
-@interface XZPageScrollView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface XZPageScrollView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 /** imageView的数组 */
 @property (nonatomic, strong) NSMutableArray *arrImgView;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -39,19 +39,20 @@ NSString *const collectionId = @"cycleCell";
     CGFloat _kImgWidth; // 图片宽度
     /** 图片大小是否一致 */
     BOOL _isSameSize;
-//    NSInteger _currentIndex;
+    /** 可以轮播 */
+    BOOL _canCycleScroll;
 }
 
 // 可不可以轮播，只有图片时，占位图
-- (instancetype)initWithFrame:(CGRect)frame isSameSize:(BOOL)isSameSize {
+- (instancetype)initWithFrame:(CGRect)frame isSameSize:(BOOL)isSameSize canCycleScroll:(BOOL)canCycleScroll {
     self = [super initWithFrame:frame];
     if (self){
         _isSameSize = isSameSize;
-        //
+        _canCycleScroll = canCycleScroll;
+        // 设置item的大小
         [self setUpImageSize];
-        //
+        // 初始化collectionView
         [self setUpPageScrollView];
-       
     }
     return self;
 }
@@ -71,6 +72,7 @@ NSString *const collectionId = @"cycleCell";
     return cell;
 }
 
+/** 自定义itemSize */
 - (void)setItemSizeCustom:(CGSize)itemSizeCustom {
     _itemSizeCustom = itemSizeCustom;
     
@@ -78,15 +80,27 @@ NSString *const collectionId = @"cycleCell";
     
     CGRect rect = _collection.frame;
     rect.size.width = kScreenWidth;
-    rect.size.height = itemSizeCustom.height;
+    rect.size.height = itemSizeCustom.height + 100;
     
     _collection.frame = rect;
     _collection.center = CGPointMake(self.center.x, self.center.y);
-    _collection.collectionViewLayout = _flowLayout;
 }
 
+// 数据
 - (void)setArrImage:(NSArray *)arrImage {
     _arrImage = arrImage;
+    // 在最前面添加第一个
+    if (_canCycleScroll) {
+        XZPageScrollModel *modelScroll = [[XZPageScrollModel alloc] init];
+        if (self.placeHolderImg) {
+            modelScroll.placeHolder = self.placeHolderImg;
+        }else {
+            modelScroll.placeHolder = @"0";
+        }
+        modelScroll.imgName = arrImage[arrImage.count - 1];
+        [self.arrPics addObject:modelScroll];
+    }
+    
     for (int i = 0;i < arrImage.count; i++) {
         XZPageScrollModel *modelScroll = [[XZPageScrollModel alloc] init];
         if (self.placeHolderImg) {
@@ -97,9 +111,23 @@ NSString *const collectionId = @"cycleCell";
         modelScroll.imgName = arrImage[i];
         [self.arrPics addObject:modelScroll];
     }
+    // 在最后面添加第一个
+    if (_canCycleScroll) {
+        XZPageScrollModel *modelScroll = [[XZPageScrollModel alloc] init];
+        if (self.placeHolderImg) {
+            modelScroll.placeHolder = self.placeHolderImg;
+        }else {
+            modelScroll.placeHolder = @"0";
+        }
+        modelScroll.imgName = arrImage[0];
+        [self.arrPics addObject:modelScroll];
+    }
+    
     [self.collection reloadData];
     
-//    [self.collection scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    if (_canCycleScroll) {
+        [self.collection scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }
 }
 
 /** 初始化view */
@@ -114,7 +142,6 @@ NSString *const collectionId = @"cycleCell";
         _flowLayout = flowLayout;
     }
     
-    NSLog(@"_flowLayout ===== %@",_flowLayout);
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:_flowLayout];
     collection.backgroundColor = [UIColor greenColor];
     //    collection.showsHorizontalScrollIndicator = NO;
@@ -126,14 +153,13 @@ NSString *const collectionId = @"cycleCell";
     [self addSubview:collection];
     _collection = collection;
     
+    _flowLayout.itemSize = CGSizeMake(_kImgWidth, _kImgHeight);
     if (_isSameSize) {
-        _flowLayout.itemSize = CGSizeMake(_kImgWidth, _kImgHeight);
         collection.pagingEnabled = YES;
-    }else {
-        _flowLayout.itemSize = CGSizeMake(_kImgWidth, _kImgHeight);
     }
 }
 
+// 设置item的大小
 - (void)setUpImageSize {
     if (_isSameSize) {
         _kImgWidth = kViewWidth;
@@ -152,10 +178,24 @@ NSString *const collectionId = @"cycleCell";
     return _arrPics;
 }
 
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 //    int index = scrollView.contentOffset.x / (_kImgWidth);
-//
-//    NSLog(@"\n scrollview.contentOffset.x:%f ===== index:%d",scrollView.contentOffset.x,index);
-//}
+    float offSetX = scrollView.contentOffset.x;
+    
+    if (offSetX > ((_kImgWidth) * (_arrPics.count - 2))) { // 最后一个
+        scrollView.contentOffset = CGPointMake(_kImgWidth, 0);
+//        _x = 0;
+//        _pageControl.currentPage = _x;
+    }else if (offSetX <= 1 ) { // 第一个
+        scrollView.contentOffset = CGPointMake((_kImgWidth) * (_arrPics.count - 2) ,0);
+//        _x = (int)(_arrPics.count - 2);
+//        _pageControl.currentPage = _x;
+    }else {
+        // 获取当前偏移量
+//        _x = scrollView.contentOffset.x / (_kImgWidth) - 1;
+//        _pageControl.currentPage = _x;
+    }
+    NSLog(@"\n offSetX:%f === _kImgWidth:%f === _arrPics.count - 2:%ld ",offSetX,_kImgWidth,_arrPics.count - 2);
+}
 
 @end

@@ -29,14 +29,21 @@
     //
     self.view.backgroundColor = [UIColor whiteColor];
 //    self.view.bounds  CGRectMake(0, 0, kScreenWidth, kScreenWidth)
-    self.scrollView = [[XZPageScrollView alloc] initWithFrame:self.view.bounds isSameSize:NO];
+    self.scrollView = [[XZPageScrollView alloc] initWithFrame:self.view.bounds isSameSize:NO canCycleScroll:YES];
     self.scrollView.center = self.view.center;
     
-//    self.scrollView.itemSizeCustom = CGSizeMake(350, 350);
+    self.scrollView.itemSizeCustom = CGSizeMake(250, 350);
     
     [self.view addSubview:self.scrollView];
     
-    self.arrUrls = @[@"https://box.dwstatic.com/skin/Irelia/Irelia_0.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_1.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_2.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_3.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_4.jpg", @"https://box.dwstatic.com/skin/Irelia/Irelia_5.jpg"];
+    self.arrUrls = @[
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_0.jpg",
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_1.jpg",
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_2.jpg",
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_3.jpg",
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_4.jpg",
+                     @"https://box.dwstatic.com/skin/Irelia/Irelia_5.jpg"
+                     ];
 //    self.arrUrls = @[@"占位图",@"占位图",@"占位图",@"占位图"];
     self.scrollView.arrImage = self.arrUrls;
 //    self.scrollView.itemSizeCustom = CGSizeMake(kImgWidth, kImgWidth);

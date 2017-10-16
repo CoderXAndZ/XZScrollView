@@ -19,8 +19,9 @@
     if (self) {
 //        self.itemSize = CGSizeMake(250, 350);
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.minimumLineSpacing = 15;
-        self.sectionInset = UIEdgeInsetsMake(64, 35, 0, 35);
+        // 设置item的间隔
+        self.minimumLineSpacing = 25;
+        self.sectionInset = UIEdgeInsetsMake(64, 25, 0, 25);
     }
     return self;
 }
@@ -61,7 +62,7 @@
     CGRect targetRect = CGRectMake(proposedContentOffset.x, 0.0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
     
 //    NSArray *array = [super layoutAttributesForElementsInRect:targetRect];
-    NSArray *array = [[NSArray alloc]initWithArray:[super layoutAttributesForElementsInRect:targetRect] copyItems:YES];
+    NSArray *array = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:targetRect] copyItems:YES];
     
     for (UICollectionViewLayoutAttributes *layoutAttrs in array) {
         CGFloat itemHorizonCenter = layoutAttrs.center.x;

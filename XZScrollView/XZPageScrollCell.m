@@ -43,21 +43,10 @@
     
     if ([modelScroll.imgName hasPrefix:@"https://"] || [modelScroll.imgName hasPrefix:@"http://"]) {
         
-//        [self.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",modelScroll.imgName]] placeholderImage:[UIImage imageNamed:modelScroll.placeHolder]];
+        [self.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",modelScroll.imgName]] placeholderImage:[UIImage imageNamed:modelScroll.placeHolder]];
     }else {
 //        self.imgView.image = [UIImage imageNamed:modelScroll.imgName];
     }
 }
-
-//- (void)setImgName:(NSString *)imgName placeholderImg:(NSString *)placeholderImg {
-//    if ([imgName hasPrefix:@"https://"] || [imgName hasPrefix:@"http://"]) {
-//        if (!placeholderImg) {
-//            placeholderImg = @"0";
-//        }
-//        [self.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgName]] placeholderImage:[UIImage imageNamed:placeholderImg]];
-//    }else {
-//        self.imgView.image = [UIImage imageNamed:imgName];
-//    }
-//}
 
 @end

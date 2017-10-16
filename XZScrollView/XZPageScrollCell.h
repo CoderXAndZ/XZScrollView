@@ -10,10 +10,6 @@
 @class XZPageScrollModel;
 @interface XZPageScrollCell : UICollectionViewCell
 
-//- (void)setImgName:(NSString *)imgName placeholderImg:(NSString *)placeholderImg;
-
 @property (nonatomic, strong) XZPageScrollModel *modelScroll;
 
-///** 图片大小是否一致 */
-//@property (nonatomic, assign) BOOL isSameSize;
 @end
